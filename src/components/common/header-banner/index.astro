@@ -3,8 +3,8 @@
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-const runtime = Astro.locals.runtime
-const ENVIRONMENT = runtime.env.ENVIRONMENT
+// GET ASTRO PROPS
+const { ENVIRONMENT } = Astro.props
 
 ---
 {

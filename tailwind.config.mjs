@@ -47,10 +47,15 @@ module.exports = {
 			},
 			colors: {
 
+				"v9_orange": "#e27216",
+				"v9_blue": "#5da2c9",
+				"v9_black": "#494949",
+				"v9_off_white": "#f6f6f6"
 
 			},
 			fontFamily: {
 
+				"lato": [ "Lato", "sans-serif" ]
 
 			}
 

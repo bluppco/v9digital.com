@@ -1,5 +1,17 @@
 ---
 
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+const {
+
+    CDN,
+    ENDPOINT,
+    ENVIRONMENT,
+    PROJECT
+
+} = runtime.env
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 import Layout from "@/layouts/layout/index.astro"
@@ -19,7 +31,9 @@ import { frontmatter as benchmarking } from "@/content/benchmarking/home.mdx"
 	image=""
 	title={ "Benchmarking" }
 >
-    <HeaderBanner />
+    <HeaderBanner
+        ENVIRONMENT={ ENVIRONMENT }
+    />
     <Header />
     <section class="py-40">
         <Container>
