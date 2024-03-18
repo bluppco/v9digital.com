@@ -1,0 +1,30 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import ButtonPrimary from "@/atoms/button/primary/index.astro"
+import HeadingTwoWhite from "@/atoms/heading/two/white/index.astro"
+import Link from "@/atoms/link/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_link,
+    button_text,
+    heading
+
+} = Astro.props
+
+---
+<section class="bg-v9_dark_gray py-16">
+    <Container>
+        <section class="flex gap-28 items-center">
+            <HeadingTwoWhite>{ heading }</HeadingTwoWhite>
+            <Link href={ button_link } aria_label={ button_text }>
+                <ButtonPrimary>{ button_text }</ButtonPrimary>
+            </Link>
+        </section>
+    </Container>
+</section>
