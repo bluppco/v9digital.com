@@ -1,0 +1,42 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import TestimonialCard from "@/components/home/testimonials/card/index.astro"
+
+const data = Array(2).fill({
+
+    title: "Extension of Team",
+    description: "As a startup in a very competitive industry, we know how critical digital marketing is for our business. Our marketing team is small, so we are fortunate that Volume Nine can perform as a true partner and extension of our own internal team. We are very pleased with how the V9 team is helping us leverage digital to not only drive online traffic and brand awareness but also increase our in-store product sales.",
+    client_name: "Katie Lowry",
+    client_designation: "Brand Manager at PanTheryx, Inc",
+    cover: "/hardcoded/client.png"
+
+})
+
+---
+<section class="py-20">
+    <Container>
+        <section class="grid grid-cols-2 gap-32">
+            {
+
+                data.map( ( value ) => {
+
+                    return(
+                        <TestimonialCard
+                            client_designation={ value.client_designation }
+                            client_name={ value.client_name }
+                            cover={ value.cover }
+                            description={ value.description }
+                            title={ value.title }
+                        />
+                    )
+
+                })
+
+            }
+        </section>
+    </Container>
+</section>
