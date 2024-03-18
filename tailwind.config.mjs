@@ -50,7 +50,8 @@ module.exports = {
 				"v9_orange": "#e27216",
 				"v9_blue": "#5da2c9",
 				"v9_black": "#494949",
-				"v9_off_white": "#f6f6f6"
+				"v9_off_white": "#f6f6f6",
+				"v9_zinc": "#eeeeee"
 
 			},
 			fontFamily: {

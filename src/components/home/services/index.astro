@@ -1,0 +1,54 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import ServiceCard from "@/components/home/services/card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoBlue from "@/atoms/heading/two/blue/index.astro"
+
+const data = {
+
+    title: "Digital Marketing Services"
+
+}
+
+const services = Array(3).fill({
+
+    cover: "/hardcoded/social-media.webp",
+    title: "Social Media",
+    description: "Social media has significant power to create brand awareness & engaged fans. Let’s work together to share your story!",
+    button_text: "Social Media",
+    button_link: "/social-media"
+
+})
+
+---
+<section class="bg-v9_zinc py-16">
+    <Container>
+        <section class="space-y-16">
+            <HeadingTwoBlue>{ data.title }</HeadingTwoBlue>
+            <div class="grid grid-cols-3 gap-20">
+                {
+
+                    services.map( ( value ) => {
+
+                        return(
+                            <ServiceCard
+                                button_link={ value.button_link }
+                                button_text={ value.button_text }
+                                cover={ value.cover }
+                                description={ value.description }
+                                title={ value.title }
+                            />
+                        )
+
+                    })
+
+                }
+            </div>
+        </section>
+    </Container>
+</section>
