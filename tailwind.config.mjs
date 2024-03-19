@@ -24,6 +24,10 @@ module.exports = {
 		},
     	extend: {
 
+			screens: {
+        		"mac": "1440px",
+      		},
+
 			keyframes: {
 
 				"accordion-down": {
