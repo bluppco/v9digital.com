@@ -3,9 +3,82 @@
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORTS ASTRO COMPONENTS
+import FooterColumnFour from '@/components/common/footer/column-four/index.astro'
+import FooterColumnOne from '@/components/common/footer/column-one/index.astro'
+import FooterColumnThree from '@/components/common/footer/column-three/index.astro'
+import FooterColumnTwo from '@/components/common/footer/column-two/index.astro'
+import Newsletter from '@/components/common/footer/newsletter/index.astro'
+import SocialIcons from '@/components/common/footer/social-icons/index.astro'
+
+// IMPORTS ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORTS FOOTER COLUMN ONE COLLECTION
+let footer_column_one = await getCollection('footer-column-one')
+footer_column_one = footer_column_one.sort((a, b) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORTS FOOTER COLUMN TWO COLLECTION
+let footer_column_two = await getCollection('footer-column-two')
+footer_column_two = footer_column_two.sort((a, b) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORTS FOOTER COLUMN THREE COLLECTION
+let footer_column_three = await getCollection('footer-column-three')
+footer_column_three = footer_column_three.sort((a, b) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORTS FOOTER COLUMN FOUR COLLECTION
+let footer_column_four = await getCollection('footer-column-four')
+footer_column_four = footer_column_four.sort((a, b) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORTS FOOTER HEADINGS
+import { frontmatter as footerColumnFour } from "@/content/footer-headings/title-four.md"
+import { frontmatter as footerColumnOne } from "@/content/footer-headings/title-one.md"
+import { frontmatter as footerColumnThree } from "@/content/footer-headings/title-three.md"
+import { frontmatter as footerColumnTwo } from "@/content/footer-headings/title-two.md"
+
 ---
-<footer class="bg-black py-20">
+<footer class="bg-v9_gray z-50 relative">
     <Container>
-        <p class="text-white">I am footer</p>
+        <section class="grid md:grid-cols-5 gap-4 md:gap-20 py-10 md:py-20">
+            <section class="md:col-span-2">
+                <Newsletter />
+            </section>
+            <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-4 gap-10">
+                <FooterColumnOne
+                    data={ footer_column_one }
+                    href={ footerColumnOne.link }
+                    title={ footerColumnOne.title }
+                />
+                <FooterColumnTwo
+                    data={ footer_column_two }
+                    href={ footerColumnTwo.link }
+                    title={ footerColumnTwo.title }
+                />
+                <FooterColumnThree
+                    data={ footer_column_three }
+                    href={ footerColumnThree.link }
+                    title={ footerColumnThree.title }
+                />
+                <FooterColumnFour
+                    data={ footer_column_four }
+                    href={ footerColumnFour.link }
+                    title={ footerColumnFour.title }
+                />
+            </div>
+        </section>
     </Container>
+    <section class="py-6 bg-v9_black">
+        <Container>
+            <section class="flex flex-col-reverse md:flex-row md:items-center justify-between gap-2 md:gap-0">
+                <div class="flex flex-col md:flex-row gap-1">
+                    <p class="text-v9_off_white font-lato">Volume 9, Inc 1312 17th St #942 Denver, CO 80202</p>
+                    <a href="tel:(303)955-5228" aria-label="contact (303) 955-5228)">
+                        <span class="text-v9_off_white font-lato underline underline-offset-2">(303) 955-5228)</span>
+                    </a>
+                </div>
+                <!-- SOCIAL ICONS -->
+                <SocialIcons />
+            </section>
+        </Container>
+    </section>
 </footer>

@@ -56,7 +56,9 @@ module.exports = {
 				"v9_black": "#494949",
 				"v9_off_white": "#f6f6f6",
 				"v9_zinc": "#eeeeee",
-				"v9_dark_gray": "#656565"
+				"v9_dark_gray": "#656565",
+				"v9_gray": "#535353",
+				"v9_light_gray": "#d9d9d9"
 
 			},
 			fontFamily: {
