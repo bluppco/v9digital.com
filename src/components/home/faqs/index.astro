@@ -1,0 +1,27 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS JSX COMPONENTS
+import Accordion from "@/components/home/faqs/accordion/index.jsx"
+
+// // GET ASTRO PROPS
+// const { data } = Astro.props
+
+const data = Array(9).fill({
+
+    title: "How will you measure the success of the marketing campaigns?",
+    description: "From the start, our digital marketing strategies are informed by data and designed specifically to meet — and exceed — your KPI goals. We consistently measure your campaign’s performance against these KPIs, and you’ll get in-depth, no-bullshit reports at the end of each month so you can see how the campaign is stacking up."
+
+})
+
+---
+<section class="bg-ms_royal_blue py-20">
+    <Container>
+        <Accordion
+            client:load
+            data={ data }
+        />
+    </Container>
+</section>
