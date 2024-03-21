@@ -1,6 +1,3 @@
-// IMPORTS ATOMS
-
-
 // IMPORTS REACT
 import { useState } from "react"
 
@@ -22,7 +19,7 @@ const Accordion = ( props ) => {
     const isOpen = index === expand
 
     return (
-        <div className="py-6">
+        <div className="md:py-4">
             <motion.section
                 initial={ false }
                 onClick={() => updateExpand( isOpen ? false : index )}
@@ -37,7 +34,7 @@ const Accordion = ( props ) => {
                     />
                 </div>
                 <div className="py-2">
-                    <h4 className="text-xl font-lato font-bold text-v9_black">{ value.title }</h4>
+                    <h4 className="text-lg md:text-xl font-lato font-bold text-v9_black">{ value.title }</h4>
                 </div>
             </motion.section>
             <div>
@@ -55,8 +52,8 @@ const Accordion = ( props ) => {
                         }}
                         transition={{ duration: 0.2 }}
                     >
-                        <div className="pt-4 md:pt-6 pl-10 space-y-4 md:space-y-6">
-                            <p className="text-lg text-v9_black font-lato">{ value.description }</p>
+                        <div className="md:pt-6 pl-8 md:pl-10 space-y-4 md:space-y-6">
+                            <p className="md:text-lg text-v9_black font-lato">{ value.description }</p>
                         </div>
                     </motion.div>
                 }
@@ -74,7 +71,7 @@ const Service = ( props ) => {
     const [ expand, updateExpand ] = useState("")
 
     return (
-        <section className="px-40">
+        <section className="pt-4">
             {
 
                 data.map( ( value, index ) => {

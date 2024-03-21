@@ -17,10 +17,10 @@ let header_data = await getCollection("header")
 header_data = header_data.sort((a, b) => a.data.order - b.data.order)
 
 ---
-<div class="flex items-center justify-between py-2 md:px-10 2xl:px-20 fixed top-10 w-full z-50 bg-white">
+<div class="flex items-center justify-between py-2 px-4 md:px-10 2xl:px-20 fixed top-10 w-full z-50 bg-white">
     <SocialIcons />
     <Link href="tel:(303) 955-5228" aria_label="call (303) 955-5228">
-        <span class="text-2xl text-v9_gray hover:text-v9_blue font-lato font-bold">(303) 955-5228</span>
+        <span class="text-lg md:text-2xl text-v9_gray hover:text-v9_blue font-lato font-bold">(303) 955-5228</span>
     </Link>
 </div>
 <header class="h-20 hidden md:flex items-center fixed top-[88px] z-[100] w-full bg-v9_gray">

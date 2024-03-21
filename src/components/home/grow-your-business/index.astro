@@ -5,7 +5,6 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import ButtonPrimary from "@/atoms/button/primary/index.astro"
-import HeadingTwoWhite from "@/atoms/heading/two/white/index.astro"
 import Link from "@/atoms/link/index.astro"
 import ParagraphLargeWhiteCenter from "@/atoms/paragraph/large/white/center/index.astro"
 
@@ -22,7 +21,7 @@ const data = {
 <section class="bg-v9_dark_gray py-16">
     <Container>
         <section class="flex flex-col gap-8 items-center justify-center md:px-80">
-            <HeadingTwoWhite>{ data.title }</HeadingTwoWhite>
+            <h2 class="font-lato font-bold text-3xl md:text-4xl text-v9_off_white text-center md:text-left">{ data.title }</h2>
             <ParagraphLargeWhiteCenter>{ data.description }</ParagraphLargeWhiteCenter>
             <Link href={ data.button_link } aria_label={ data.button_text }>
                 <ButtonPrimary>{ data.button_text }</ButtonPrimary>
