@@ -1,0 +1,25 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoWhite from "@/atoms/heading/two/white/index.astro"
+import ParagraphLargeWhite from "@/atoms/paragraph/large/white/index.astro"
+
+const data = {
+
+    title: "A Digital Marketing Agency You Can Trust",
+    description: "Are you overwhelmed with your to-do list and keeping up with algorithms and social media changes? Since 2007, Volume Nine has helped more than 1,000 brands create awareness, drive traffic, and generate more revenue via organic marketing channels."
+
+}
+
+---
+<section class="bg-v9_blue pt-28 md:pt-44 pb-56 md:pb-60 -skew-y-6 relative h-full z-10 -translate-y-20 border-t-[6px] border-white">
+    <Container>
+        <section class="space-y-10 skew-y-6">
+            <HeadingTwoWhite>{ data.title }</HeadingTwoWhite>
+            <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
+        </section>
+    </Container>
+</section>

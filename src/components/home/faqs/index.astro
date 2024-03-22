@@ -1,0 +1,42 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS JSX COMPONENTS
+import Accordion from "@/components/home/faqs/accordion/index.jsx"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/heading/two/index.astro"
+import ParagraphLarge from "@/atoms/paragraph/large/black/index.astro"
+
+// // GET ASTRO PROPS
+// const { data } = Astro.props
+
+const data = {
+
+    title: "Frequently Asked Questions",
+    description: "When it comes to choosing the right digital marketing partner, we know you need to do your due diligence. That means doing some research on you and your competitors while making sure that your potential partner is transparent, experienced, and qualified. To help, we are sharing some of the most common questions we get asked as an agency."
+
+}
+
+const faq = Array(9).fill({
+
+    title: "How will you measure the success of the marketing campaigns?",
+    description: "From the start, our digital marketing strategies are informed by data and designed specifically to meet — and exceed — your KPI goals. We consistently measure your campaign’s performance against these KPIs, and you’ll get in-depth, no-bullshit reports at the end of each month so you can see how the campaign is stacking up."
+
+})
+
+---
+<section class="py-12 md:py-20">
+    <Container>
+        <section class="space-y-4 md:space-y-8 md:px-40">
+            <HeadingTwo>{ data.title }</HeadingTwo>
+            <ParagraphLarge>{ data.description }</ParagraphLarge>
+            <Accordion
+                client:load
+                data={ faq }
+            />
+        </section>
+    </Container>
+</section>

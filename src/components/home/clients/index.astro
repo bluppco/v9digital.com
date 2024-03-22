@@ -1,0 +1,33 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS JSX COMPONENTS
+import ClientsCarousel from "@/components/home/clients/carousel/index.jsx"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    PROJECT
+
+} = Astro.props
+
+const data = Array(12).fill({
+
+    cover: "hardcoded/bc-logo.webp"
+
+})
+
+---
+<section class="bg-white h-52 w-full absolute bottom-0 z-20">
+    <Container>
+        <ClientsCarousel
+            CDN={ CDN }
+            client:load
+            data={ data }
+            PROJECT={ PROJECT }
+        />
+    </Container>
+</section>

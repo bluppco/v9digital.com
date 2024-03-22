@@ -1,0 +1,40 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoBlue from "@/atoms/heading/two/blue/index.astro"
+import ParagraphLarge from "@/atoms/paragraph/large/black/index.astro"
+
+const data = {
+
+    title: "What It’s Like to Work With Volume Nine",
+    description: "Here at Volume Nine, we are your partner in achieving results. We don’t tell you it is ‘out of scope.’ Have a question? We will answer it. Have a special request or a big presentation next week? We are on it! Our clients see us as an extension of their team with one goal in mind — SUCCESS."
+
+}
+
+---
+<section class="bg-v9_zinc py-20">
+    <Container>
+        <section class="space-y-6 md:space-y-16">
+            <HeadingTwoBlue>{ data.title }</HeadingTwoBlue>
+            <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+                <div class="py-4">
+                    <ParagraphLarge>{ data.description }</ParagraphLarge>
+                </div>
+                <div class="h-full aspect-video">
+                    <iframe
+                        title="vimeo-player"
+                        src="https://player.vimeo.com/video/349803320?h=d05296ce95"
+                        width="100%"
+                        height="100%"
+                        frameborder="0"
+                        allowfullscreen
+                    >
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </Container>
+</section>

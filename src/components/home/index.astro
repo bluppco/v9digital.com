@@ -1,0 +1,54 @@
+---
+
+// IMPORTS ASTRO COMPONENTS
+import About from "@/components/home/about/index.astro"
+import Clients from "@/components/home/clients/index.astro"
+import Faqs from "@/components/home/faqs/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import GrowYourBusiness from "@/components/home/grow-your-business/index.astro"
+import Header from "@/components/common/header/index.astro"
+import HeaderBanner from "@/components/common/header-banner/index.astro"
+import Hero from "@/components/home/hero/index.astro"
+import ImproveROI from "@/components/home/improve-roi/index.astro"
+import LookingForPartner from "@/components/home/looking-for-partner/index.astro"
+import Services from "@/components/home/services/index.astro"
+import Testimonials from "@/components/home/testimonials/index.astro"
+import WhyVolumeNine from "@/components/home/why-volume-nine/index.astro"
+import WorkWithUs from "@/components/home/work-with-us/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    ENVIRONMENT,
+    PROJECT
+
+} = Astro.props
+
+---
+<section class="h-screen">
+    <HeaderBanner
+        ENVIRONMENT={ ENVIRONMENT }
+    />
+    <Header />
+    <Hero
+        CDN={ CDN }
+        PROJECT={ PROJECT }
+    />
+</section>
+<section class="relative">
+    <About />
+    <Clients
+        CDN={ CDN }
+        PROJECT={ PROJECT }
+    />
+</section>
+<Services />
+<ImproveROI />
+<Testimonials />
+<WhyVolumeNine />
+<WorkWithUs />
+<LookingForPartner />
+<Faqs />
+<GrowYourBusiness />
+<Footer />
