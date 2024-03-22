@@ -1,0 +1,53 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import AdvantageCard from "@/components/home/why-volume-nine/advantage-card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoWhite from "@/atoms/heading/two/white/index.astro"
+import ParagraphLargeWhite from "@/atoms/paragraph/large/white/index.astro"
+
+const data = {
+
+    title: "Why Volume Nine?",
+    description: "Teaming up with Volume Nine means you can trust our experienced digital marketing specialists to develop your strategy and execute the tactics to improve your ROI. Our user first approach build brand awareness, engagement, traffic, and sales from your marketing efforts to achieve the results you’re looking for."
+
+}
+
+const advantages = Array(3).fill({
+
+    title: "Proven Strategy",
+    description: "Having a great team is critical to your success! You will be working with a dedicated team of expert specialists who will be led by a seasoned Director who has close to a decade of digital marketing experience.",
+    cover: "/hardcoded/proven-strategy.webp"
+
+})
+
+---
+<section class="bg-v9_blue py-20">
+    <Container>
+        <section class="space-y-8">
+            <HeadingTwoWhite>{ data.title }</HeadingTwoWhite>
+            <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
+            <div class="grid md:grid-cols-3 gap-12 md:gap-20 pt-4">
+                {
+
+                    advantages.map( ( value ) => {
+
+                        return(
+                            <AdvantageCard
+                                cover={ value.cover }
+                                description={ value.description }
+                                title={ value.title }
+                            />
+                        )
+
+                    })
+
+                }
+            </div>
+        </section>
+    </Container>
+</section>

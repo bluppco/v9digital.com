@@ -1,0 +1,36 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import ButtonSecondary from "@/atoms/button/secondary/index.astro"
+import HeadingThreeBlue from "@/atoms/heading/three/blue/index.astro"
+import Link from "@/atoms/link/index.astro"
+import ParagraphLarge from "@/atoms/paragraph/large/black/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_link,
+    button_text,
+    cover,
+    description,
+    title
+
+} = Astro.props
+
+---
+<div class="space-y-4">
+    <div class="size-24">
+        <PictureInternal
+            alternative_text={ title }
+            source={ cover }
+        />
+    </div>
+    <Link href={ "/services" + button_link } aria_label={ title }>
+        <HeadingThreeBlue>{ title }</HeadingThreeBlue>
+    </Link>
+    <ParagraphLarge>{ description }</ParagraphLarge>
+    <Link href={ "/services" + button_link } aria_label={ title }>
+        <ButtonSecondary>{ button_text }</ButtonSecondary>
+    </Link>
+</div>

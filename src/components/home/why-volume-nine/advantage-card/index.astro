@@ -1,0 +1,27 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import HeadingThreeWhite from "@/atoms/heading/three/white/index.astro"
+import ParagraphLarge from "@/atoms/paragraph/large/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    cover,
+    description,
+    title
+
+} = Astro.props
+
+---
+<div class="space-y-6">
+    <div class="size-24">
+        <PictureInternal
+            alternative_text={ title }
+            source={ cover }
+        />
+    </div>
+    <HeadingThreeWhite>{ title }</HeadingThreeWhite>
+    <ParagraphLarge>{ description }</ParagraphLarge>
+</div>
