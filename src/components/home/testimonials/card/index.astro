@@ -1,0 +1,42 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import HeadingThree from "@/atoms/heading/three/index.astro"
+import ParagraphLarge from "@/atoms/paragraph/large/black/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    client_designation,
+    client_name,
+    cover,
+    description,
+    title
+
+} = Astro.props
+
+---
+<div class="space-y-6">
+    <div class="size-10">
+        <PictureInternal
+            alternative_text="open quote icon"
+            source="/icons/open-quote.webp"
+        />
+    </div>
+    <HeadingThree>{ title }</HeadingThree>
+    <ParagraphLarge>{ description }</ParagraphLarge>
+    <div class="flex gap-6 items-center">
+        <div class="size-14">
+            <PictureInternal
+                alternative_text={ client_name }
+                source={ cover }
+            />
+        </div>
+        <div class="pt-2">
+            <span class="font-lato font-bold text-v9_blue text-lg">{ client_name }</span>
+            <span class="font-lato font-bold text-v9_blue text-lg">|</span>
+            <span class="font-lato text-v9_blue text-lg">{ client_designation }</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import ButtonPrimary from "@/atoms/button/primary/index.astro"
+import Link from "@/atoms/link/index.astro"
+import ParagraphLargeWhiteCenter from "@/atoms/paragraph/large/white/center/index.astro"
+
+const data = {
+
+    title: "Ready to grow your business online?",
+    description: "Whether you’re trying to build brand awareness on social media or needing to drive more traffic from search engines, we’re here to help you connect with your audience and hit those strategic goals.",
+    button_text: "Let’s Talk!",
+    button_link: "/lets-talk"
+
+}
+
+---
+<section class="bg-v9_dark_gray py-16">
+    <Container>
+        <section class="flex flex-col gap-8 items-center justify-center md:px-80">
+            <h2 class="font-lato font-bold text-3xl md:text-4xl text-v9_off_white text-center md:text-left">{ data.title }</h2>
+            <ParagraphLargeWhiteCenter>{ data.description }</ParagraphLargeWhiteCenter>
+            <Link href={ data.button_link } aria_label={ data.button_text }>
+                <ButtonPrimary>{ data.button_text }</ButtonPrimary>
+            </Link>
+        </section>
+    </Container>
+</section>

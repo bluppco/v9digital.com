@@ -1,0 +1,96 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+import SocialIcons from '@/components/common/header/social-icons/index.astro'
+
+// IMPORTS ASTRO ATOMS
+import ButtonPrimary from "@/atoms/button/primary/index.astro"
+import Link from "@/atoms/link/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+// IMPORTS HEADER COLLECTION
+import { getCollection } from "astro:content"
+
+let header_data = await getCollection("header")
+header_data = header_data.sort((a, b) => a.data.order - b.data.order)
+
+---
+<div class="flex items-center justify-between py-2 px-4 md:px-10 2xl:px-20 fixed top-10 w-full z-50 bg-white">
+    <SocialIcons />
+    <Link href="tel:(303) 955-5228" aria_label="call (303) 955-5228">
+        <span class="text-lg md:text-2xl text-v9_gray hover:text-v9_blue font-lato font-bold">(303) 955-5228</span>
+    </Link>
+</div>
+<header class="h-20 hidden md:flex items-center fixed top-[88px] z-[100] w-full bg-v9_gray">
+    <Container>
+        <nav class="flex items-center justify-between h-full">
+            <div>
+                <Link href="/" aria_label="volume nine digital logo">
+                    <div class="h-16 w-full">
+                        <PictureInternalContain
+                            alternative_text="volume nine digital logo"
+                            source="/logo/volume9-logo.webp"
+                        />
+                    </div>
+                </Link>
+                <p class="font-lato text-white text-sm uppercase tracking-widest -translate-y-3">Grow Your Brand Organically</p>
+            </div>
+            <section>
+                <div class="flex gap-8 items-center">
+                    <ul class="flex gap-6">
+                        {
+
+                            header_data.map( ( item ) => {
+
+                                return (
+                                    <li class="flex items-center gap-1 relative group cursor-pointer font-lato text-v9_off_white text-lg uppercase px-2 py-4">
+                                        <Link
+                                            aria_label={"explore " + item.data.title }
+                                            href={ "/" + item.data.slug }
+                                        >
+                                            { item.data.title }
+                                        </Link>
+                                        {
+
+                                            item.data.has_dropdown &&
+                                            <div class="hidden group-hover:block group-hover:flex-col absolute bg-v9_gray -left-6 z-20 top-14 w-56 gap-2">
+                                                <ul class="flex flex-col">
+                                                    {
+
+                                                        item.data.items.map( ( sub_item, sub_item_index ) => {
+
+                                                            return(
+                                                                <li class="hover:bg-v9_black text-base border-b border-v9_off_white/10 capitalize">
+                                                                    <Link
+                                                                        aria_label={ "explore" + sub_item.title }
+                                                                        href={ sub_item.slug }
+                                                                    >
+                                                                        <div class="py-3 px-10">{ sub_item.title }</div>
+                                                                    </Link>
+                                                                </li>
+                                                            )
+
+                                                        })
+
+                                                    }
+                                                </ul>
+                                            </div>
+
+                                        }
+                                    </li>
+                                )
+
+                            })
+
+                        }
+                    </ul>
+                    <Link href="/lets-talk" aria_label="Let's Talk">
+                        <ButtonPrimary>Let's Talk</ButtonPrimary>
+                    </Link>
+                </div>
+            </section>
+        </nav>
+    </Container>
+</header>
